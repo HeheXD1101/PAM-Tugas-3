@@ -1,4 +1,4 @@
-package com.filkom.lazylayout
+package com.example.lazylayout
 
 import androidx.annotation.DrawableRes
 

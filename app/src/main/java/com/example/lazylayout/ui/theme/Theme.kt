@@ -1,4 +1,4 @@
-package com.filkom.lazylayout.ui.theme
+package com.example.lazylayout.ui.theme
 
 import android.app.Activity
 import android.os.Build

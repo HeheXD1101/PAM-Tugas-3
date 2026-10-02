@@ -1,4 +1,4 @@
-package com.filkom.lazylayout
+package com.example.lazylayout
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -32,7 +32,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.filkom.lazylayout.ui.theme.LazyLayoutTheme
+import com.example.lazylayout.ui.theme.LazyLayoutTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,7 +50,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-// Sample Data Hewan
 private val sampleHewan = listOf(
     Hewan(1, "Kucing", "mamalia berkaki empat", R.drawable.kucing_icon),
     Hewan(2, "Ikan", "Hewan air yang bernapas menggunakan insang", R.drawable.ikan_icon),
