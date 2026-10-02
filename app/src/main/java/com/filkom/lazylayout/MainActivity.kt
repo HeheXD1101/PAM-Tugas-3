@@ -40,8 +40,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             LazyLayoutTheme {
-                GadgetListHeader(
-                    gadgets = sampleGadgets,
+                HewanListHeader(
+                    hewanList = sampleHewan,
                     nim = "245150407111037",
                     nama = "Muhammad Murfid Kharomen",
                 )
@@ -50,24 +50,24 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-// Sample Data
-private val sampleGadgets = listOf(
-    Gadget(1, "Smartphone", "Perangkat komunikasi genggam", R.drawable.ic_smartphone),
-    Gadget(2, "Laptop", "Komputer portabel untuk bekerja", R.drawable.ic_laptop),
-    Gadget(3, "Tablet", "Perangkat layar sentuh antara hp dan laptop", R.drawable.ic_tablet),
-    Gadget(4, "Smartwatch", "Jam tangan pintar pelacak kesehatan", R.drawable.ic_smartwatch),
-    Gadget(5, "Earbuds", "Perangkat audio nirkabel", R.drawable.ic_earbuds),
-    Gadget(6, "Laptop", "Perangkat komputasi portabel", R.drawable.ic_laptop),
-    Gadget(7, "Smartphone", "Perangkat komunikasi genggam", R.drawable.ic_smartphone),
-    Gadget(8, "Laptop", "Komputer portabel untuk bekerja", R.drawable.ic_laptop),
-    Gadget(9, "Tablet", "Perangkat layar sentuh antara hp dan laptop", R.drawable.ic_tablet),
-    Gadget(10, "Smartwatch", "Jam tangan pintar pelacak kesehatan", R.drawable.ic_smartwatch),
-    Gadget(11, "Earbuds", "Perangkat audio nirkabel", R.drawable.ic_earbuds),
-    Gadget(12, "Laptop", "Perangkat komputasi portabel", R.drawable.ic_laptop),
+// Sample Data Hewan
+private val sampleHewan = listOf(
+    Hewan(1, "Kucing", "mamalia berkaki empat", R.drawable.kucing_icon),
+    Hewan(2, "Ikan", "Hewan air yang bernapas menggunakan insang", R.drawable.ikan_icon),
+    Hewan(3, "Burung", "Hewan yang bisa terbang", R.drawable.burung_icon),
+    Hewan(4, "Laba-Laba", "Hewan arachnida berkaki delapan", R.drawable.labalaba_icon),
+    Hewan(5, "Kucing", "mamalia berkaki empat", R.drawable.kucing_icon),
+    Hewan(6, "Ikan", "Hewan air yang bernapas menggunakan insang", R.drawable.ikan_icon),
+    Hewan(7, "Burung", "Hewan yang bisa terbang", R.drawable.burung_icon),
+    Hewan(8, "Laba-Laba", "Hewan arachnida berkaki delapan", R.drawable.labalaba_icon),
+    Hewan(9, "Kucing", "mamalia berkaki empat", R.drawable.kucing_icon),
+    Hewan(10, "Ikan", "Hewan air yang bernapas menggunakan insang", R.drawable.ikan_icon),
+    Hewan(11, "Burung", "Hewan yang bisa terbang", R.drawable.burung_icon),
+    Hewan(12, "Laba-Laba", "Hewan arachnida berkaki delapan", R.drawable.labalaba_icon),
 )
 
 @Composable
-fun GadgetItem(gadget: Gadget, modifier: Modifier = Modifier) {
+fun HewanItem(hewan: Hewan, modifier: Modifier = Modifier) {
     Card(
         modifier = modifier
             .fillMaxWidth()
@@ -80,8 +80,8 @@ fun GadgetItem(gadget: Gadget, modifier: Modifier = Modifier) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Image(
-                painter = painterResource(id = gadget.imageRes),
-                contentDescription = gadget.name,
+                painter = painterResource(id = hewan.imageRes),
+                contentDescription = hewan.name,
                 modifier = Modifier
                     .size(56.dp)
                     .clip(RoundedCornerShape(8.dp))
@@ -91,12 +91,12 @@ fun GadgetItem(gadget: Gadget, modifier: Modifier = Modifier) {
             Spacer(modifier = Modifier.width(16.dp))
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = gadget.name,
+                    text = hewan.name,
                     style = MaterialTheme.typography.titleLarge
                 )
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
-                    text = gadget.description,
+                    text = hewan.description,
                     style = MaterialTheme.typography.bodyMedium
                 )
             }
@@ -106,8 +106,8 @@ fun GadgetItem(gadget: Gadget, modifier: Modifier = Modifier) {
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun GadgetListHeader(
-    gadgets: List<Gadget>,
+fun HewanListHeader(
+    hewanList: List<Hewan>,
     nim: String,
     nama: String,
     modifier: Modifier = Modifier
@@ -138,15 +138,15 @@ fun GadgetListHeader(
                 )
             }
         }
-        items(gadgets, key = { it.id }) { gadget ->
-            GadgetItem(gadget)
+        items(hewanList, key = { it.id }) { hewan ->
+            HewanItem(hewan)
         }
     }
 }
 
 @Composable
-fun GadgetGrid(
-    gadgets: List<Gadget>,
+fun HewanGrid(
+    hewanList: List<Hewan>,
     modifier: Modifier = Modifier
 ) {
     LazyVerticalGrid(
@@ -154,8 +154,8 @@ fun GadgetGrid(
         contentPadding = PaddingValues(8.dp),
         modifier = modifier.fillMaxSize()
     ) {
-        items(gadgets, key = { it.id }) { gadget ->
-            GadgetItem(gadget)
+        items(hewanList, key = { it.id }) { hewan ->
+            HewanItem(hewan)
         }
     }
 }
